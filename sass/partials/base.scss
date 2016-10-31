@@ -1,0 +1,197 @@
+// Colours
+$very-warm: #FF8500;
+$warm: #ffc600;
+$normal: #94AF10;
+$cold: #06799F;
+$very-cold: #233884;
+
+// Breakpoints
+$mobile-width: 500px;
+@mixin mobile {
+    @media (max-width: $mobile-width) {
+        @content;
+    }
+}
+
+
+.very-warm { color: $very-warm; }
+.warm { color: $warm; }
+.normal { color: $normal; }
+.cold { color: $cold; }
+.very-cold { color: $very-cold; }  
+
+// DOM Elements
+.weather-widget {
+    width: 100%;
+    color: white;
+    font-family: league-gothic, sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    padding: 5% 10%;
+
+    @include mobile {
+        padding: 2%;
+    }
+
+    &.very-warm { background-color: $very-warm; }
+    &.warm { background-color: $warm; }
+    &.normal { background-color: $normal; }
+    &.cold { background-color: $cold; }
+    &.very-cold { background-color: $very-cold; }
+}
+
+.city {
+    font-size: 4em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 100%;
+    text-align: center;
+    
+    .country {
+        font-size: 0.5em;
+    }
+}
+
+.history {
+    position: relative;
+    left: -27px;
+    display: table;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 300px;
+    
+    li {
+        cursor: pointer;
+        background: white;
+        margin-bottom: 1px;
+        padding: 10px;
+        font-size: 1.3em;
+    }
+}
+.search {
+    display: table;
+    margin: auto;
+    margin-bottom: 10px;
+    
+    input {
+        border: none;
+        width: 300px;
+        height: 30px;
+        padding: 10px;
+    }
+    
+    button {
+        height: 30px;
+        cursor: pointer;
+        background: white; 
+        border: none;
+        margin-left: 5px;
+    }    
+}
+
+.recent-search {
+    display: flex; 
+    margin: auto;
+    flex-wrap: wrap;
+    flex-grow: 5;
+    justify-content: center;
+    
+    li {  
+        height: 30px;
+        line-height: 30px;
+        cursor: pointer;
+        text-align: center;
+        background: white;
+        width: 19%;
+        margin-right: 1px;
+        margin-bottom: 1px;
+        font-size: 1.5em;
+    }
+    
+    &.very-warm { color: $very-warm; }
+    &.warm { color: $warm; }
+    &.normal { color: $normal; }
+    &.cold { color: $cold; }
+    &.very-cold { color: $very-cold; }
+}
+
+.weather{
+    display: table;
+    height: 415px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid white;
+
+    @include mobile {
+        height: 350px;
+    }
+
+     .wi {
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 20em;
+
+         @include mobile {
+            font-size: 15em;
+         }
+    }
+}
+
+.weather-details {
+    overflow: hidden;
+    margin-top: 35px;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .temp {
+        font-size: 13.5em;
+        float: left;
+        width: 55%;
+        max-height: 200px;
+
+        @include mobile {
+            font-size: 9em;
+        }
+
+        .temp-number, .wi {
+            vertical-align: top;
+            line-height: 0.85em;
+        }
+
+        .wi {
+            font-size: 1.5em;
+            line-height: 0.8em;
+        }
+    }
+
+    .humidity, .wind {
+        font-size: 5em;
+
+        @include mobile {
+            font-size: 3em;
+        }
+
+        .wi {
+            vertical-align: top;
+            width: 70px;
+
+            @include mobile {
+                width: 40px;
+            }
+        }
+    }
+
+    .humidity {
+        margin-bottom: 20px;
+    }
+
+    .wind {
+        .wi {
+            font-size: 0.82em;
+        }
+        .vel {
+            font-size: 0.6em;
+        }
+    }
+}
